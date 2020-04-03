@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stepik Travel</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container mt-3">
+    {% block head %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" data-test="logo" href="{% url 'url_index' %}">{{ title }}</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" data-test="navigation">
+            {% for url_tail, text in departures.items %}
+          <li class="nav-item {% if url_tail == departure %} active {% endif %}">
+            <a class="nav-link" href="{% url 'url_departure' url_tail%}" data-test="navlink">{{ text }} </a>
+          </li>
+            {% endfor %}
+        </ul>
+      </div>
+    </nav>
+    {% endblock%}
+
+    {% block jumbotron %}
+    {% endblock %}
+    <!-- CARDS -->
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+</body>
+</html>

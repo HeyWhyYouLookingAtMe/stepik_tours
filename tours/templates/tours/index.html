@@ -1,0 +1,13 @@
+{% extends "tours/base.html" %}
+    <!-- HERO -->
+{% block jumbotron %}
+    <div class="jumbotron text-center mt-4">
+      <h1 class="display-4">Всякие туры</h1>
+      <p class="lead">{{ subtitle }}</p>
+      <p class="mt-5 w-50 mx-auto">{{ description }}</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+{% include "tours/tours.html" %}
+{% endblock %}
